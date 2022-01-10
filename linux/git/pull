@@ -1,0 +1,7 @@
+for d in */;
+do
+	echo $d;
+	cd $d
+	git pull $1 $2;
+	cd ..
+done
