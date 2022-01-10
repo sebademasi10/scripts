@@ -1,0 +1,7 @@
+project=https://gitlab.cidsfrcutn.tech/gobierno-de-cordoba/vivienda/
+echo $project
+for arg in "$@"
+do 
+	echo "$arg"
+	git clone $project/$arg
+done
