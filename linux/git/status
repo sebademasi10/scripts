@@ -3,5 +3,6 @@ do
 	echo $d;
 	cd $d
 	git status;
+	echo -e "\n"
 	cd ..
 done
