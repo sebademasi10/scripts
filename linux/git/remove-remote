@@ -1,0 +1,8 @@
+for d in */;
+do
+	echo $d;
+	cd $d
+	cmd=`git remote remove $1`
+	echo "$cmd"
+	cd ..
+done
