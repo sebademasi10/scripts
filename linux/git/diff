@@ -1,0 +1,8 @@
+for d in */;
+do
+	echo $d;
+	cd $d
+	git diff --compact-summary $1 $2;
+	echo -e "\n"
+	cd ..
+done
