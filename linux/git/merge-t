@@ -1,0 +1,7 @@
+for d in */;
+do
+	echo $d;
+	cd $d
+	git push -f -o merge_request.create -o merge_request.target=testing $1 $2;
+	cd ..
+done
