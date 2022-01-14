@@ -1,5 +1,19 @@
-# Ir a rama dev-cba 
-# Copiar archivos en deploys/<entorno> $1. Dockerfile, docker-compose, Jenkinsfile
-# Git add
-# Git commit
-# Git push -u
+# Ir a rama cuyo nombre coincide con el entorno a crear 
+checkout-to $1
+# Actualizar $1
+pull
+for d in */;
+do
+	echo $d;
+	cd $d
+	# Copiar archivos en deploys/<entorno> $1. Dockerfile, docker-compose, Jenkinsfile
+	mkdir deploys deploys/$1
+	cp Dockerfile docker-compose.yml Jenkinsfile deploys/$1
+	# Commitear y pushear
+	git add .
+	git commit -m "Agrego deploys/$1"
+	git push
+	echo "Agreado el entorno $1"
+	echo -e "\n"
+	cd ..
+done
