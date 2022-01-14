@@ -1,0 +1,8 @@
+for d in */;
+do
+	echo $d;
+	cd $d
+	npm i
+	echo -e "\n"
+	cd ..
+done
