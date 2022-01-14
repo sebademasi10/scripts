@@ -1,0 +1,5 @@
+# Ir a rama dev-cba 
+# Copiar archivos en deploys/<entorno> $1. Dockerfile, docker-compose, Jenkinsfile
+# Git add
+# Git commit
+# Git push -u
