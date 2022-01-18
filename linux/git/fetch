@@ -3,5 +3,6 @@ do
 	echo $d;
 	cd $d
 	git fetch --all;
+	echo
 	cd ..
 done

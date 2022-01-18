@@ -1,7 +1,9 @@
+CHECKOUT_TO=$GIT_SCRIPTS_PATH/checkout-to
+PULL=$GIT_SCRIPTS_PATH/pull
 # Ir a rama cuyo nombre coincide con el entorno a crear 
-checkout-to $1
+$CHECKOUT_TO $1
 # Actualizar $1
-pull
+$PULL
 for d in */;
 do
 	echo $d;
@@ -12,7 +14,7 @@ do
 	# Commitear y pushear
 	git add .
 	git commit -m "Agrego deploys/$1"
-	git push
+	# git push
 	echo "Agreado el entorno $1"
 	echo -e "\n"
 	cd ..
