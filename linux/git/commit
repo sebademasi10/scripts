@@ -1,0 +1,14 @@
+if [ $# -gt 0 ];
+then
+
+	for d in */;
+	do
+		echo $d;
+		cd $d
+		git commit -m "$1";
+		echo -e "\n"
+		cd ..
+	done
+else
+	echo "Por favor ingrese un mensaje"
+fi

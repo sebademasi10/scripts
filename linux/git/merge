@@ -1,0 +1,7 @@
+for d in */;
+do
+	echo $d;
+	cd $d
+	git merge $1;
+	cd ..
+done

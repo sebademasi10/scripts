@@ -1,0 +1,8 @@
+for d in */;
+do
+	echo $d;
+	cd $d
+	git config --local --add checkout.defaultRemote origin
+	echo -e "\n"
+	cd ..
+done
