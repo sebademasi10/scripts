@@ -2,7 +2,7 @@ for d in */;
 do
 	echo $d;
 	cd $d
-	git fetch --all;
+	git fetch $1 $2;
 	echo
 	cd ..
 done

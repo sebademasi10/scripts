@@ -2,6 +2,6 @@ for d in */;
 do
 	echo $d;
 	cd $d
-	git merge $1;
+	git merge $1 $2 $3;
 	cd ..
 done
