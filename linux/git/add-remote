@@ -1,4 +1,4 @@
-url="https://gitlab.cidsfrcutn.tech/gobierno-de-cordoba/vivienda"
+url="http://tfs.gobiernocba.gov.ar%2Ftfs%2FSecretar%C3%ADa%20de%20Vivienda%2FProyecto%20SIIV%2F_git"
 for d in */;
 do
 	echo $d;
