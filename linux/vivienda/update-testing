@@ -1,0 +1,24 @@
+#!/bin/bash
+
+for d in */;
+do
+	echo -e "\n\n$d"
+	cd $d
+	git checkout testing
+	git branch --set-upstream-to=origin/testing testing
+	LAST_TAG=`git tag --sort=creatordate | grep dev-cba\_ | tail -1`
+	DIFFERENCES_AMOUNT=`git diff --compact-summary $LAST_TAG | wc -l`
+	echo -e "\nCantidad de diferencias: $DIFFERENCES_AMOUNT"
+	echo -e "\nÚltimo tag: $LAST_TAG\c"
+	if [[ -z "$LAST_TAG" ]]; then
+		echo -e "No hay tags"
+	fi
+	if [ $DIFFERENCES_AMOUNT -ne 0  ]; then
+		git checkout $LAST_TAG
+		git push --delete origin testing
+		git branch -D testing
+		git switch -c testing
+		git push -u origin testing
+	fi
+	cd ..
+done
