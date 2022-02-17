@@ -1,7 +1,7 @@
 CHECKOUT_TO=$GIT_SCRIPTS_PATH/checkout-to
 PULL=$GIT_SCRIPTS_PATH/pull
 # Ir a rama cuyo nombre coincide con el entorno a crear 
-$CHECKOUT_TO $1
+$CHECKOUT_TO -b $1
 # Actualizar $1
 $PULL
 for d in */;
