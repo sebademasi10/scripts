@@ -1,10 +1,10 @@
-url="http://tfs.gobiernocba.gov.ar%2Ftfs%2FSecretar%C3%ADa%20de%20Vivienda%2FProyecto%20SIIV%2F_git"
+url="http://tfs.gobiernocba.gov.ar/tfs/Secretar%C3%ADa%20de%20Vivienda/Proyecto%20SIIV/_git"
 for d in */;
 do
 	echo $d;
 	cd $d
 	di=`echo $d | sed -r 's/\///g'`
-	cmd=`git remote add $1 $url/$di.git`
+	cmd=`git remote add $1 $url/$di`
   echo
 	cd ..
 done
