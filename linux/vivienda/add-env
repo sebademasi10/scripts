@@ -16,10 +16,10 @@ do
 	cp Dockerfile docker-compose.yml deploys/$1
 	sed -i "s|environment=desarrollo|environment=$1|" deploys/$1/Dockerfile
 	# Commitear y pushear
-	#	git add .
-	#	git commit -m "Agrego deploys/$1"
-	#	git push -u origin $1
-	#	echo "Agreado el entorno $1"
-	#	echo -e "\n"
+		git add .
+		git commit -m "Agrego deploys/$1"
+		git push -u origin $1
+		echo "Agreado el entorno $1"
+		echo -e "\n"
 	cd ..
 done
