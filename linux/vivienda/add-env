@@ -7,7 +7,7 @@ for d in */;
 do
 	echo $d;
 	cd $d
-	# Copiar archivos en deploys/<entorno> $1. Dockerfile, docker-compose
+	# Copiar archivos en deploys/<entorno> $1. Dockerfile
 	if [ $d != "frontend/" ] && [ $d != "api-gateway/" ];
 	then
 		cp ormconfig.json ormconfig-$1.json
