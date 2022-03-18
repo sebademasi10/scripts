@@ -1,24 +1,20 @@
 #!/bin/bash
 ## Incrementa el tag del entorno pasado como primer argumento
-for d in */;
-do
-	echo -e "\n\n$d"
-	cd $d
-	LAST_TAG=`git tag --sort=creatordate | grep $1\_ | tail -1`
-	LAST_VERSION=`echo $LAST_TAG | cut -d"_" -f 2`
-	MAJOR_VERSION=`echo $LAST_VERSION | cut -d"." -f 1`
-	MINOR_VERSION=`echo $LAST_VERSION | cut -d"." -f 2`
-	PATCH_VERSION=`echo $LAST_VERSION | cut -d"." -f 3`
-	BUILD_VERSION=`echo $LAST_VERSION | cut -d"." -f 4`
-	INCREMENTED_BUILD_VERSION=`expr $BUILD_VERSION + 1`
-	INCREMENTED_VERSION=$1_$MAJOR_VERSION.$MINOR_VERSION.$PATCH_VERSION.$INCREMENTED_BUILD_VERSION
-	echo $LAST_TAG
-	echo $BUILD_VERSION	
-	echo $INCREMENTED_BUILD_VERSION
-	echo $INCREMENTED_VERSION
-	git tag $INCREMENTED_VERSION
-	git push origin $INCREMENTED_VERSION	
-	git push tfs-gov $INCREMENTED_VERSION	
-	
-	cd ..
-done
+
+echo -e "\n\n$d"
+LAST_TAG=`git tag --sort=creatordate | grep $1\_ | tail -1`
+LAST_VERSION=`echo $LAST_TAG | cut -d"_" -f 2`
+MAJOR_VERSION=`echo $LAST_VERSION | cut -d"." -f 1`
+MINOR_VERSION=`echo $LAST_VERSION | cut -d"." -f 2`
+PATCH_VERSION=`echo $LAST_VERSION | cut -d"." -f 3`
+BUILD_VERSION=`echo $LAST_VERSION | cut -d"." -f 4`
+INCREMENTED_BUILD_VERSION=`expr $BUILD_VERSION + 1`
+INCREMENTED_VERSION=$1_$MAJOR_VERSION.$MINOR_VERSION.$PATCH_VERSION.$INCREMENTED_BUILD_VERSION
+echo $LAST_TAG
+echo $BUILD_VERSION	
+echo $INCREMENTED_BUILD_VERSION
+echo $INCREMENTED_VERSION
+git tag $INCREMENTED_VERSION
+git push origin $INCREMENTED_VERSION	
+git push tfs-gov $INCREMENTED_VERSION	
+
