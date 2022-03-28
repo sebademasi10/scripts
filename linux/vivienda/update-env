@@ -10,7 +10,7 @@ do
 	LAST_VERSION_TST=`echo $LAST_TAG_TST | cut -d"_" -f 2`
 	if [[ $LAST_VERSION_DEV = $LAST_VERSION_TST  ]]; 
 	then
-		echo "Versiones iguales en dev y tst"
+		echo "Versiones iguales en $1 y $2"
 	else
 		echo "Versión dev: $LAST_VERSION_DEV"
 		echo -e "Versión tst: $LAST_VERSION_TST\n"
