@@ -4,7 +4,7 @@ for d in */;
 do
 	echo $d
 	cd $d
-	git tag
+	git tag --list $1 --sort creatordate
 	echo
 	cd ..
 done

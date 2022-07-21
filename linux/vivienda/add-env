@@ -2,7 +2,7 @@
 
 CHECKOUT_TO=$GIT_SCRIPTS_PATH/checkout-to
 # Ir a rama cuyo nombre coincide con el entorno a crear 
-$CHECKOUT_TO -b $1
+# $CHECKOUT_TO -b $1
 for d in */;
 do
 	echo $d;
@@ -13,12 +13,12 @@ do
 		cp ormconfig.json ormconfig-$1.json
 	fi
 	mkdir -p deploys/$1
-	cp Dockerfile docker-compose.yml deploys/$1
+	cp Dockerfile deploys/$1
 	sed -i "s|environment=desarrollo|environment=$1|" deploys/$1/Dockerfile
 	# Commitear y pushear
 		git add .
 		git commit -m "Agrego deploys/$1"
-		git push -u origin $1
+		git push 
 		echo "Agreado el entorno $1"
 		echo -e "\n"
 	cd ..
